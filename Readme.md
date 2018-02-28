@@ -1,10 +1,10 @@
 ### What is this?
 
-Traefik is a HTTP **reverse proxy** and **load balancer** that permit to have different docker container that using same port at the same time.
+Traefik is a HTTP **reverse proxy** and **load balancer** that permit to have different docker containers that using same ports up at the same time.
 
-### How to start using for project?
+### How to start using for projects?
 
-- First of all clone this repository with command `git clone https://gitlab.fullsix.it/orchestra/traefik.git`
+- First of all clone this repository with command `https://github.com/tevesh/traefick.git`
 
 - Once the project is downloaded you have to build the image with `docker-compose build` from within the traefik directory
 
@@ -16,7 +16,7 @@ Traefik is a HTTP **reverse proxy** and **load balancer** that permit to have di
 
 **In short: There are a lot of magic in this universe!**
 
-Every project that have to run with this proxy/balancer must have this network in its stack into docker-composer.yml file:
+Every project that have to run with this proxy/balancer **must have this network in its stack** into docker-composer.yml file:
 ```
 networks:
   webnetwork:

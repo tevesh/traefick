@@ -6,6 +6,3 @@
 ehthumbs.db
 Thumbs.db
 .idea/
-.gitignore
-Readme.md
-docker-compose.yml
