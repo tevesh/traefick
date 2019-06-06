@@ -4,7 +4,7 @@ Traefik is a HTTP **reverse proxy** and **load balancer** that permit to have di
 
 ### How to start using for projects?
 
-- First of all clone this repository with command `https://github.com/tevesh/traefick.git`
+- First of all clone this repository with command `https://github.com/tevesh/traefik.git`
 
 - Once the project is downloaded you have to build the image with `docker-compose build` from within the traefik directory
 
