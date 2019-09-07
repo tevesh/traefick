@@ -1,25 +1,28 @@
-version: '3'
+version: "3"
+
+networks:
+  sharednetwork:
+    external: true
 
 services:
   traefik:
-      image: traefik
-      restart:
-        always
-      command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
-      ports:
-        - 80:80
-        - 8080:8080
-        - 443:443
-      networks:
-        - webgateway
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - /dev/null:/traefik.toml
-      cap_drop:
-        - all
-      cap_add:
-        - net_bind_service
-
-networks:
-  webgateway:
-    driver: bridge
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: traefik-common
+    labels:
+      - "traefik.port=8080"
+      - "traefik.docker.network=sharednetwork"
+    networks:
+      - sharednetwork
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    restart:
+      always
+    volumes:
+      - ./docker/config/traefik.toml:/etc/traefik/traefik.toml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    # Enable logs if need
+    # - ./config/logs/:/etc/traefik/logs/
